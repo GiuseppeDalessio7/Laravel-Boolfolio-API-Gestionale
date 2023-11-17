@@ -32,6 +32,9 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
     /* all ruote start (admin.dashboard) or other */
 });
 
+Route::get('/', function () {
+    return redirect()->route('login');
+});
 
 
 
