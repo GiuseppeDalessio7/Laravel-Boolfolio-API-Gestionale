@@ -26,3 +26,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::middleware(HandleCors::class)->group(function () {
     Route::get('projects', [ProjectController::class, 'index']);
 });
+
+// Route::get('projects/latest', function () {
+//     $projects = Project::with('type', 'technologies')->OrderbyDesc('id')->take(3)->get();
+//     return response()->json([
+//         'status' => 'success',
+//         'result' => $projects
+//     ]);
+// });

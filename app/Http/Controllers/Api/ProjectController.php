@@ -6,14 +6,16 @@ use App\Http\Controllers\Controller;
 use App\Models\Project;
 use Illuminate\Http\Request;
 
+use function PHPSTORM_META\type;
+
 class ProjectController extends Controller
 {
     public function index()
     {
-        $projects = Project::all();
+        $projects = Project::with(['type', 'technologies'])->orderByDesc('id')->get();
         return response()->json(
             [
-                'status' => 'success',
+                'status' => true,
                 'author' => 'Giuseppe',
                 'result' => $projects
             ]
